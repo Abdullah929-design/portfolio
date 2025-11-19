@@ -10,14 +10,8 @@ const contactRoutes = require('./routes/contact');
 const app = express();
 
 // Middleware
-const corsOrigin = process.env.CORS_ORIGIN || '*';
-app.use(cors({ origin: corsOrigin === '*' ? true : corsOrigin }));
+app.use(cors());
 app.use(express.json());
-
-// Health check
-app.get('/healthz', (req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
 
 // Routes
 app.use('/api/auth', authRoutes);

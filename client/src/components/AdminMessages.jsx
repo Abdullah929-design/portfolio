@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const AdminMessages = () => {
   const [messages, setMessages] = useState([]);
@@ -11,7 +12,7 @@ const AdminMessages = () => {
     const getAllMessages = async () => {
       
       try {
-        const res = await axios.get("http://localhost:5000/api/contact");
+        const res = await axios.get(`${API_BASE}/api/contact`, { headers: { Authorization: `Bearer ${token}` } });
         setMessages(res.data); 
       } catch (error) {
         console.error("Failed to fetch messages:", error);

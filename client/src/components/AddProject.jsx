@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const AddProject = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ const AddProject = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/projects", payload, {
+      await axios.post(`${API_BASE}/api/projects`, payload, {
         headers: {
           Authorization: `Bearer ${token}`
         }

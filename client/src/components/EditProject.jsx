@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const EditProject = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const EditProject = () => {
     const fetchProject = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+        const res = await axios.get(`${API_BASE}/api/projects/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const project = res.data;
@@ -56,7 +57,7 @@ const EditProject = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/api/projects/${id}`, updatedData, {
+      await axios.put(`${API_BASE}/api/projects/${id}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 const AuthContext = createContext();
 
@@ -13,7 +14,6 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // Verify token validity
       fetchUser();
     } else {
       setLoading(false);
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       // Add user verification endpoint if needed
-       const response = await axios.get('http://localhost:5000/api/auth/user');
+       const response = await axios.get(`${API_BASE}/api/auth/user`);
       
       const { user } = response.data;
       setUser(user);
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post(`${API_BASE}/api/auth/login`, {
         email,
         password
       });

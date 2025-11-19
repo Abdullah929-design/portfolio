@@ -10,8 +10,19 @@ const contactRoutes = require('./routes/contact');
 const app = express();
 
 // Middleware
-app.use(cors());
+// CORS configuration - allow all origins in production, or specific origins
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || '*', // Use FRONTEND_URL env var or allow all
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
+
+// Health check endpoint for Render
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is running' });
+});
 
 // Routes
 app.use('/api/auth', authRoutes);

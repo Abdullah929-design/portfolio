@@ -31,10 +31,27 @@ app.use('/api/contact', contactRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => {
+    console.log('Connected to MongoDB');
+    console.log('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Missing');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+    console.error('Error details:', err.message);
+  });
+
+// Handle MongoDB connection events
+mongoose.connection.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('MongoDB disconnected');
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`MongoDB URI: ${process.env.MONGODB_URI ? 'Configured' : 'MISSING!'}`);
 });

@@ -9,7 +9,11 @@ router.get('/', async (req, res) => {
     const projects = await Project.find();
     res.json(projects);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ 
+      message: 'Server error', 
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined 
+    });
   }
 });
 

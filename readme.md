@@ -113,8 +113,7 @@ portfolio-website/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ankitjhagithub21/mern-portfolio.git
-   cd portfolio-website
+   git clone https://github.com/Abdullah929-design/portfolio.git
    ```
 
 2. **Install backend dependencies**

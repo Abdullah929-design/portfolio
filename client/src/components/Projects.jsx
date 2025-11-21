@@ -21,7 +21,14 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  if(loading) return <></>
+  // Loading state
+  if(loading) {
+    return (
+      <div className="w-100 text-center my-5" style={{minHeight:'200px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+        <h3 className="text-primary">Loading projects, please wait...</h3>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -487,33 +487,23 @@ footer .footer-icon:hover {
     align-items: flex-end !important;
   }
   
-  .asymmetric-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    right: auto;
-    bottom: 0;
-    background-image: url('/mobile.jpg');
+  .asymmetric-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/mobile.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.2;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .asymmetric-hero {
-    background-image: none;
     position: relative;
     z-index: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 100vw;
     display: flex;
     align-items: flex-end;
   }
+
+  .asymmetric-hero::before {
+    display: none;
+  }
+
   .asymmetric-hero .col-lg-6 {
     position: relative;
     z-index: 1;
@@ -529,8 +519,12 @@ footer .footer-icon:hover {
   .asymmetric-hero {
     min-height: auto;
     padding-bottom: 1rem;
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/mobile.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .hero-intro-box {
     padding: 2rem 1rem;
@@ -543,12 +537,6 @@ footer .footer-icon:hover {
   }
   .hero-gradient-text {
     font-size: 2rem !important;
-  }
-  
-  .asymmetric-hero::before {
-    opacity: 0.15;
-    width: 100%;
-    background-repeat: no-repeat;
   }
 }
 

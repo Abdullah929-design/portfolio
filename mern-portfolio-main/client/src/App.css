@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  --bg-color: #171923;
+  --bg-color: #121212;
   --text-color: #fff;
-  --accent-color: #74c7ec;  /* Soft pastel blue for glass/neon */
-  --secondary-accent: #ff95c5; /* Pastel pink */
+  --accent-color: #ff8c00;
+  --secondary-accent: #ff95c5;
   --glass-bg: rgba(64, 76, 115, 0.18);
   --glass-border: rgba(255, 255, 255, 0.22);
   --shadow: 0 4px 24px 0px rgba(95, 135, 180, 0.13);
@@ -13,7 +13,7 @@
 
 .light-mode {
   --bg-color: #fafdff;
-  --text-color: #121314;
+  --text-color: rgb(0, 139, 139);
   --accent-color: #00eaff;    /* Neon cyan */
   --secondary-accent: #feee3d; /* Neon yellow */
   --glass-bg: rgba(0, 234, 255, 0.12);
@@ -60,7 +60,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
   font-family: 'Inter', 'Montserrat', Arial, system-ui, sans-serif;
-  color: var(--text-color);
+  color: var(--accent-color);
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode h5,
+.light-mode h6 {
+  color: #0099ff;
 }
 
 p, span, div {
@@ -70,24 +79,36 @@ p, span, div {
 
 /* Navbar */
 .navbar {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--glass-border);
+  background: rgba(26, 26, 26, 0.6) !important;
   transition: all 0.3s ease;
+  box-shadow: none !important;
 }
 
-.navbar-brand {
+.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-brand {
   font-weight: 700;
   color: var(--accent-color) !important;
 }
 
-.nav-link {
+.light-mode .navbar .navbar-brand {
+  color: #0099ff !important;
+}
+
+.navbar .nav-link {
   color: var(--text-color) !important;
   transition: color 0.3s ease;
 }
 
-.nav-link:hover {
+.navbar .nav-link:hover {
   color: var(--accent-color) !important;
+}
+
+.light-mode .navbar .nav-link:hover {
+  color: #0099ff !important;
 }
 
 /* Dark/Light Mode Toggle */
@@ -143,7 +164,10 @@ section.px-4.py-5.my-5.text-center h1 {
 section.px-4.py-5.my-5.text-center .lead {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  
+}
+
+.light-mode section.px-4.py-5.my-5.text-center .lead {
+  color: #0099ff;
 }
 
 section.px-4.py-5.my-5.text-center .btn {
@@ -173,19 +197,15 @@ section.col-xxl-8.px-4.py-5 {
   box-shadow: var(--shadow);
 }
 
-section.col-xxl-8.px-4.py-5 img {
-  border-radius: 16px;
-  transition: transform 0.3s ease;
-}
-
-section.col-xxl-8.px-4.py-5 img:hover {
-  transform: scale(1.02);
-}
-
 section.col-xxl-8.px-4.py-5 h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--accent-color);
+  text-align: center;
+}
+
+.light-mode section.col-xxl-8.px-4.py-5 h1 {
+  color: #0099ff;
 }
 
 section.col-xxl-8.px-4.py-5 p {
@@ -274,6 +294,10 @@ section#contact h1 {
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 2rem;
+}
+
+.light-mode section#contact h1 {
+  color: #0099ff;
 }
 
 section#contact .form-floating {
@@ -367,6 +391,18 @@ footer .footer-icon:hover {
   box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
 }
 
+.light-mode .btn-outline-secondary {
+  border-color: #0099ff !important;
+  color: #0099ff !important;
+}
+
+.light-mode .btn-outline-secondary:hover {
+  background: #0099ff !important;
+  border-color: #0099ff !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 153, 255, 0.3);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   section.px-4.py-5.my-5.text-center h1 {
@@ -394,13 +430,39 @@ footer .footer-icon:hover {
 .asymmetric-hero {
   min-height: 75vh;
   padding-bottom: 0;
+  background: url('/dekstop.jpg') top center / cover no-repeat;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Desktop view: Slightly reduce hero background image opacity */
+@media (min-width: 993px) {
+  .asymmetric-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .asymmetric-hero .row {
+    position: relative;
+    z-index: 1;
+  }
 }
 .hero-intro-box {
   max-width: 600px;
   margin-top: 30px;
   margin-bottom: 30px;
   z-index: 1;
-  box-shadow: var(--shadow);
+  background: transparent;
+  box-shadow: none;
 }
 .hero-img-floating {
   margin-top: -60px;
@@ -408,12 +470,11 @@ footer .footer-icon:hover {
   filter: drop-shadow(0 2px 16px var(--accent-color));
 }
 .hero-gradient-text {
-  background: linear-gradient(95deg, var(--accent-color), var(--secondary-accent), #90cdf4 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  text-shadow: 0 2px 40px var(--accent-color), 0 2px 48px var(--secondary-accent);
+  color: var(--accent-color);
+}
+
+.light-mode .hero-gradient-text {
+  color: #0099ff;
 }
 
 @media (max-width: 992px) {
@@ -423,12 +484,47 @@ footer .footer-icon:hover {
   }
   .asymmetric-hero .row {
     flex-direction: column-reverse !important;
+    align-items: flex-end !important;
+  }
+  
+  .asymmetric-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/mobile.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    max-width: 100vw;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .asymmetric-hero::before {
+    display: none;
+  }
+
+  .asymmetric-hero .col-lg-6 {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .hero-intro-box {
+    margin-bottom: 0 !important;
+    margin-top: auto !important;
   }
 }
 @media (max-width: 768px) {
   .asymmetric-hero {
     min-height: auto;
     padding-bottom: 1rem;
+    overflow: hidden;
+    max-width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/mobile.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .hero-intro-box {
     padding: 2rem 1rem;
@@ -583,7 +679,7 @@ body.light-mode .form-control {
 }
 
 .my-btn {
-  border: 1px solid #6658f6; /* your custom color */
+  border: 1px solid #6658f6;
   color: #5545df;
   transition: 0.2s;
 }
@@ -593,7 +689,11 @@ body.light-mode .form-control {
   color: white;
 }
 .about-heading {
-  color: #6f4cff; /* your custom color */
+  color: #6f4cff;
+}
+
+.light-mode .about-heading {
+  color: #0099ff;
 }
 
 .list-group-item .mb-1 {

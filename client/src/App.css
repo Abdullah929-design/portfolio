@@ -115,10 +115,10 @@ p, span, div {
   color: var(--accent-color) !important;
 }
 
-/* Speed up navbar collapse toggle on mobile/tablet */
+/* Instant navbar collapse toggle on mobile/tablet */
 .navbar .collapse,
 .navbar .collapsing {
-  transition: height 0.12s ease, opacity 0.12s ease;
+  transition: none !important;
 }
 
 .light-mode .navbar .nav-link:hover {

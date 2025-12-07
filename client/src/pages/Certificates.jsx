@@ -6,7 +6,7 @@ import certificatesData from '../data/certificatesData'
 
 const Certificates = () => {
   // Load certificates from separate data file
-  const [certificates, setCertificates] = useState(certificatesData)
+  const [certificates] = useState(certificatesData)
 
   const [selectedCertificate, setSelectedCertificate] = useState(null)
 

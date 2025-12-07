@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      <Hero />
       <main className="container mx-auto">
-        <Hero />
         <About />
         <Contact />
 

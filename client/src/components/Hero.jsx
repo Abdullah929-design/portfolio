@@ -2,18 +2,9 @@ import React, { memo } from "react"
 
 const Hero = memo(() => {
     return (
-        <section className="container-fluid px-4 py-5 my-5 asymmetric-hero">
-            <div className="row align-items-center flex-lg-row-reverse g-5 py-5">
-                <div className="col-lg-6 d-flex justify-content-center align-items-center position-relative">
-                    <img
-                        className="d-block mx-auto mb-4 shadow border hero-img-floating"
-                        src="/profile.jfif"
-                        alt="Abdullah Salleh"
-                        width={300}
-                        style={{ borderRadius: "50%", zIndex: 2 }}
-                    />
-                </div>
-                <div className="col-lg-6 hero-intro-box glass p-5 rounded-4 position-relative">
+        <section className="container-fluid px-0 py-5 asymmetric-hero">
+            <div className="row align-items-center justify-content-start g-5 py-5">
+                <div className="col-lg-8 p-5 position-relative text-start">
                     <h1 className="display-4 fw-bold hero-gradient-text mb-3 text-wrap">
                         Hello, I am Abdullah Salleh
                     </h1>

@@ -491,16 +491,18 @@ footer .footer-icon:hover {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
     bottom: 0;
     background-image: url('/mobile.jpg');
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.2;
     z-index: 0;
-    width: 100%;
+    width: 100vw;
+    height: 100%;
   }
   
   .asymmetric-hero {

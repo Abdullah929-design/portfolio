@@ -1,0 +1,21 @@
+[build]
+  # Directory to change to before starting a build
+  base = "client"
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  # Since base is "client", publish path is relative to base directory
+  publish = "dist"
+  
+  # Build command (runs from base directory)
+  command = "npm install && npm run build"
+
+[build.environment]
+  # Node version for Netlify build
+  NODE_VERSION = "18"
+
+# Redirect rules for React Router (SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+

@@ -430,7 +430,7 @@ footer .footer-icon:hover {
 .asymmetric-hero {
   min-height: 75vh;
   padding-bottom: 0;
-  background: url('/dekstop.jpg') center center / cover no-repeat;
+  background: url('/dekstop.jpg') top center / cover no-repeat;
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -495,10 +495,9 @@ footer .footer-icon:hover {
     right: 0;
     bottom: 0;
     background-image: url('/mobile.jpg');
-    background-position: center center;
+    background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     opacity: 0.2;
     z-index: 0;
     width: 100%;

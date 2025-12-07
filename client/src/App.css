@@ -495,7 +495,7 @@ footer .footer-icon:hover {
     right: 0;
     bottom: 0;
     background-image: url('/mobile.jpg');
-    background-position: 50% 50%;
+    background-position: center bottom;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.2;

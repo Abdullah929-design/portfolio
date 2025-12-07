@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import axios from "axios";
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
-const Contact = () => {
+const Contact = memo(() => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -103,6 +103,7 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
 
+Contact.displayName = 'Contact';
 export default Contact;

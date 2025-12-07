@@ -1,6 +1,6 @@
-import React from "react"
+import React, { memo } from "react"
 
-const Hero = () => {
+const Hero = memo(() => {
     return (
         <section className="container-fluid px-4 py-5 my-5 asymmetric-hero">
             <div className="row align-items-center flex-lg-row-reverse g-5 py-5">
@@ -32,7 +32,7 @@ const Hero = () => {
             </div>
         </section>
     )
-}
+});
 
-export default Hero
-// Add accompanying CSS to App.css in next step
+Hero.displayName = 'Hero';
+export default Hero;

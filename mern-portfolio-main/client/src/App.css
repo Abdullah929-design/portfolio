@@ -27,12 +27,20 @@
   box-sizing: border-box;
 }
 
+/* Disable transitions during theme toggle for instant switch */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .sidebar {
@@ -48,7 +56,7 @@ body {
 }
 
 .glass-hover {
-  transition: backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .glass-hover:hover {
@@ -80,7 +88,7 @@ p, span, div {
 /* Navbar */
 .navbar {
   background: rgba(26, 26, 26, 0.6) !important;
-  transition: all 0.3s ease;
+  transition: background 0.15s ease;
   box-shadow: none !important;
 }
 
@@ -100,7 +108,7 @@ p, span, div {
 
 .navbar .nav-link {
   color: var(--text-color) !important;
-  transition: color 0.3s ease;
+  transition: color 0.15s ease;
 }
 
 .navbar .nav-link:hover {
@@ -119,7 +127,7 @@ p, span, div {
   padding: 8px 12px;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   backdrop-filter: blur(10px);
 }
 
@@ -176,7 +184,7 @@ section.px-4.py-5.my-5.text-center .btn {
   border-radius: 25px;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
   margin: 0 0.5rem;
 }
@@ -236,7 +244,7 @@ section.text-center.container .lead {
   border: 1px solid var(--glass-border) !important;
   border-radius: 18px;
   box-shadow: var(--shadow);
-  transition: all 0.35s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
   position: relative;
 }
@@ -271,7 +279,7 @@ section.text-center.container .lead {
   background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
   border: none;
   border-radius: 20px;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3 .card .btn:hover {
@@ -327,7 +335,7 @@ section#contact .btn-primary {
   border-radius: 25px;
   padding: 0.75rem 2rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
   width: 100%;
 }
@@ -354,7 +362,7 @@ body.light-mode footer .text-muted {
 }
 
 footer .footer-icon {
-  transition: color 0.3s ease;
+  transition: color 0.15s ease;
 }
 
 footer .footer-icon:hover {
@@ -381,7 +389,7 @@ footer .footer-icon:hover {
 .btn-outline-secondary {
   border-color: var(--accent-color) !important;
   color: var(--accent-color) !important;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .btn-outline-secondary:hover {

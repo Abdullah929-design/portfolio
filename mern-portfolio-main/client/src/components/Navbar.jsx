@@ -23,7 +23,13 @@ const Navbar = () => {
   }, [theme])
 
   const toggleTheme = () => {
+    // Disable transitions during theme switch for instant change
+    document.body.classList.add("theme-switching")
     setTheme(prev => prev === "dark" ? "light" : "dark")
+    // Re-enable transitions after a short delay
+    setTimeout(() => {
+      document.body.classList.remove("theme-switching")
+    }, 50)
   }
   // Theme logic end
 

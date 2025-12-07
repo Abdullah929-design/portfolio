@@ -1,6 +1,6 @@
+import { memo } from 'react';
 
-
-const About = () => {
+const About = memo(() => {
     return (
         <section className=" col-xxl-8 px-4 py-5" id="about">
 
@@ -30,6 +30,7 @@ const About = () => {
         </section>
 
     )
-}
+});
 
-export default About
+About.displayName = 'About';
+export default About;

@@ -497,6 +497,7 @@ footer .footer-icon:hover {
     background-image: url('/mobile.jpg');
     background-position: top center;
     background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0.2;
     z-index: 0;
     width: 100%;
@@ -545,6 +546,7 @@ footer .footer-icon:hover {
   .asymmetric-hero::before {
     opacity: 0.15;
     width: 100%;
+    background-repeat: no-repeat;
   }
 }
 

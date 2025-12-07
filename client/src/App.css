@@ -11,6 +11,14 @@
   --hover-shadow: 0 14px 44px 0px rgba(116, 199, 236, 0.28);
 }
 
+/* Disable transitions during theme toggle for instant switch */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 .light-mode {
   --bg-color: #fafdff;
   --text-color: rgb(0, 139, 139);

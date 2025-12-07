@@ -23,7 +23,12 @@ const Navbar = () => {
   }, [theme])
 
   const toggleTheme = () => {
+    // disable transitions briefly to avoid flash and make the switch feel instant
+    document.body.classList.add("theme-switching")
     setTheme(prev => prev === "dark" ? "light" : "dark")
+    setTimeout(() => {
+      document.body.classList.remove("theme-switching")
+    }, 50)
   }
   // Theme logic end
 

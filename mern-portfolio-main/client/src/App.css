@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  --bg-color: #121212;
+  --bg-color: #171923;
   --text-color: #fff;
-  --accent-color: #ff8c00;
-  --secondary-accent: #ff95c5;
+  --accent-color: #74c7ec;  /* Soft pastel blue for glass/neon */
+  --secondary-accent: #ff95c5; /* Pastel pink */
   --glass-bg: rgba(64, 76, 115, 0.18);
   --glass-border: rgba(255, 255, 255, 0.22);
   --shadow: 0 4px 24px 0px rgba(95, 135, 180, 0.13);
@@ -13,7 +13,7 @@
 
 .light-mode {
   --bg-color: #fafdff;
-  --text-color: rgb(0, 139, 139);
+  --text-color: #121314;
   --accent-color: #00eaff;    /* Neon cyan */
   --secondary-accent: #feee3d; /* Neon yellow */
   --glass-bg: rgba(0, 234, 255, 0.12);

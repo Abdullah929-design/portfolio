@@ -67,7 +67,7 @@ const Contact = () => {
     setStatus('loading')
     setFieldError('')
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData)
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, formData)
       if (res.status === 200 || res.status === 201) {
         setStatus('success')
         setFormData({ name: '', email: '', message: '' })

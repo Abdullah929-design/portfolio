@@ -272,3 +272,65 @@
     padding: var(--space-xl) var(--space-lg);
   }
 }
+
+
+@media (max-width: 480px) {
+  .contact {
+    overflow: hidden;
+  }
+
+  .contact .section-wrapper {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .contact__inner {
+    gap: var(--space-2xl);
+    width: 100%;
+  }
+
+  .contact__grid {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* ✅ Fix gradient-border overflow on mobile */
+  .contact__form.gradient-border::before {
+    display: none;
+  }
+
+  .contact__form {
+    padding: var(--space-lg) var(--space-md);
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--border-accent); /* ✅ replace gradient border with simple one */
+    overflow: hidden;
+  }
+
+  .contact__form-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .contact__input {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .contact__textarea {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .contact__info-card {
+    padding: var(--space-md);
+  }
+
+  /* ✅ Prevent long email from overflowing */
+  .contact__info-value {
+    word-break: break-all;
+    font-size: 0.78rem;
+  }
+}

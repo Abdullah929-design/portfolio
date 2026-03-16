@@ -303,9 +303,25 @@
 /* =================== RESPONSIVE =================== */
 @media (max-width: 768px) {
   .hero__socials { display: none; }
-  .hero__stats { flex-wrap: wrap; }
-  .hero__stat { padding: 0.875rem 1.25rem; }
+  .hero__orb--1 {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    right: -60px;
+  }
+  .hero__orb--2 {
+    width: 220px;
+    height: 220px;
+    bottom: -60px;
+    left: -60px;
+  }
+  .hero__stats { flex-wrap: wrap;
+  justify-content: center; }
+  .hero__stat { padding: 0.875rem 1.25rem;
+  width: 50%; }
   .hero__stat-value { font-size: 1.4rem; }
+  /* ✅ Hide scroll indicator on mobile — it overlaps on short content */
+  .hero__scroll-indicator { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -314,4 +330,46 @@
   .hero__ctas .btn-secondary { justify-content: center; }
   .hero__stats { justify-content: center; }
   .hero__stat { padding: 0.75rem 1rem; }
+}
+
+
+@media (max-width: 768px) {
+  .hero__socials { display: none; }
+
+  /* ✅ Shrink orbs so they don't bleed outside viewport */
+  .hero__orb--1 {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    right: -60px;
+  }
+  .hero__orb--2 {
+    width: 220px;
+    height: 220px;
+    bottom: -60px;
+    left: -60px;
+  }
+
+  /* ✅ Stats: 2x2 grid instead of single row */
+  .hero__stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero__stat {
+    padding: 0.875rem 1.25rem;
+    width: 50%;
+  }
+  .hero__stat-value { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .hero__ctas { flex-direction: column; width: 100%; }
+  .hero__ctas .btn-primary,
+  .hero__ctas .btn-secondary { justify-content: center; }
+
+  .hero__stats { justify-content: center; }
+  .hero__stat { padding: 0.75rem 1rem; }
+
+  /* ✅ Prevent content padding from causing overflow */
+  .hero__content { padding: 0 1rem 5rem; }
 }

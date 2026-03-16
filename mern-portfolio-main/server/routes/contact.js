@@ -2,7 +2,7 @@ const express = require('express');
 const { Resend } = require('resend');
 const router = express.Router();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 const OWNER_EMAIL = 'abdullahsallehaqeel123@gmail.com';
 
 // Submit contact form — sends email via Resend
@@ -17,6 +17,8 @@ router.post('/', async (req, res) => {
     console.warn('RESEND_API_KEY not set — email not sent.');
     return res.status(500).json({ message: 'Email service not configured.' });
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { data, error } = await resend.emails.send({

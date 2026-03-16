@@ -277,6 +277,18 @@
 }
 
 @media (max-width: 480px) {
-  .navbar__container { padding: 0 1rem; }
+  .navbar__container { padding: 0 1rem;
+  justify-content: space-between; }
   .navbar__logo-name { display: none; }
+  /* ✅ Show and center the CTA button on mobile */
+  .navbar__cta {
+    display: flex;
+    margin-left: 0;       /* remove any previous left margin */
+    margin-right: 0;
+    font-size: 0.75rem;
+    padding: 0.45rem 0.9rem;
+}
+.navbar__toggle {
+    margin-left: 0; /* ✅ remove auto margin, parent handles spacing */
+  }
 }

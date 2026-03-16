@@ -1,10 +1,9 @@
 [build]
-  base = "mern-portfolio-main/client"
-  command = "cd mern-portfolio-main/client && npm install && npm run build"
-  publish = "mern-portfolio-main/client/dist"
+  command = "npm install && npm run build"
+  publish = "dist"
 
 [functions]
-  directory = "mern-portfolio-main/client/netlify/functions"
+  directory = "netlify/functions"
 
 [[redirects]]
   from = "/*"

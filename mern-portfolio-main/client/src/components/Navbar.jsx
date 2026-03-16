@@ -1,7 +1,30 @@
 import { useAuth } from "../context/AuthContext"
-import  {Link} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+
 const Navbar = () => {
   const { user } = useAuth()
+  const navigate = useNavigate()
+  const [isNavigating, setIsNavigating] = useState(false)
+
+  const handleNavigation = (path, hash = null) => {
+    if (isNavigating) return
+    
+    setIsNavigating(true)
+    
+    if (hash) {
+      navigate(path)
+      setTimeout(() => {
+        const el = document.getElementById(hash.slice(1))
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+        setIsNavigating(false)
+      }, 50)
+    } else {
+      navigate(path)
+      setTimeout(() => setIsNavigating(false), 50)
+    }
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow sticky-top">
       <div className="container">
@@ -27,9 +50,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#about">
+              <button 
+                className="nav-link btn btn-link" 
+                onClick={() => handleNavigation("/#about")}
+                style={{ cursor: 'pointer', textDecoration: 'none' }}
+              >
                 About
-              </Link>
+              </button>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/projects">
@@ -42,9 +69,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/#contact">
+              <button 
+                className="nav-link btn btn-link" 
+                onClick={() => handleNavigation("/#contact")}
+                style={{ cursor: 'pointer', textDecoration: 'none' }}
+              >
                 Contact
-              </Link>
+              </button>
             </li>
             {
               user && user.email && <li className="nav-item">

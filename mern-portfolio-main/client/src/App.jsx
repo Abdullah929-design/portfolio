@@ -8,11 +8,10 @@ import AdminProjects from './components/AdminProjects';
 import AddProject from './components/AddProject';
 import EditProject from './components/EditProject';
 import ProjectsPage from './pages/Projects';
-import ProtectedRoute from "./components/ProtectedRoute"
-import './App.css';
-import Hero from "./components/Hero";
-import Loading from "./components/Loading";
+import ProjectDetail from './pages/ProjectDetail';
+import ProtectedRoute from "./components/ProtectedRoute";
 import Certificates from "./pages/Certificates";
+import './App.css';
 
 function App() {
   return (
@@ -21,8 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
 
           <Route
             path="/admin/dashboard"
@@ -32,7 +32,7 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Hero  />} />
+            <Route index element={<AdminProjects />} />
             <Route path="messages" element={<AdminMessages />} />
             <Route path="projects" element={<AdminProjects />} />
             <Route path="projects/add" element={<AddProject />} />
@@ -43,8 +43,5 @@ function App() {
     </AuthProvider>
   );
 }
-
-
-
 
 export default App;

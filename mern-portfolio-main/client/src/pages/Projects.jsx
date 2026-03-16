@@ -2,11 +2,12 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import ProjectsSection from '../components/Projects'
 
-const Projects = () => {
+const ProjectsPage = () => {
   return (
     <>
+      <a href="#main-content" className="skip-nav">Skip to main content</a>
       <Navbar />
-      <main className="container mx-auto">
+      <main id="main-content" style={{ paddingTop: '72px' }}>
         <ProjectsSection />
       </main>
       <Footer />
@@ -14,4 +15,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default ProjectsPage

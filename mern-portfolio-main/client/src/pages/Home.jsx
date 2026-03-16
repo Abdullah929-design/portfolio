@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import Navbar from '../components/Navbar';
-import About from "../components/About"
-import Contact from "../components/Contact"
-import Footer from "../components/Footer"
-import Hero from "../components/Hero"
-import Projects from "../components/Projects"
-
+import Navbar from '../components/Navbar'
+import About from '../components/About'
+import Projects from '../components/Projects'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
+import Hero from '../components/Hero'
 
 const Home = () => {
   const location = useLocation()
@@ -23,12 +22,13 @@ const Home = () => {
 
   return (
     <>
+      <a href="#main-content" className="skip-nav">Skip to main content</a>
       <Navbar />
-      <main className="container mx-auto">
+      <main id="main-content">
         <Hero />
         <About />
+        <Projects limit={3} />
         <Contact />
-
       </main>
       <Footer />
     </>

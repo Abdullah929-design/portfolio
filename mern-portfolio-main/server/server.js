@@ -1,10 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const authRoutes = require('./routes/auth');
-const projectRoutes = require('./routes/projects');
 const contactRoutes = require('./routes/contact');
 
 const app = express();
@@ -14,8 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/projects', projectRoutes);
 app.use('/api/contact', contactRoutes);
 
 // Health ping endpoint
@@ -47,16 +42,6 @@ const keepServerAwake = () => {
 
 // Schedule health ping every 10 minutes
 setInterval(keepServerAwake, 10 * 60 * 1000);
-
-// Connect to MongoDB only if URI is configured and not localhost
-const mongoUri = process.env.MONGODB_URI || ''
-if (mongoUri && !mongoUri.includes('127.0.0.1') && !mongoUri.includes('localhost')) {
-  mongoose.connect(mongoUri)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err))
-} else {
-  console.log('MongoDB: skipped (no Atlas URI configured — contact form uses Resend instead)')
-}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

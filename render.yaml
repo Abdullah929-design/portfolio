@@ -1,0 +1,19 @@
+services:
+  # Frontend Service
+  - type: web
+    name: portfolio-frontend
+    env: static
+    buildCommand: "cd mern-portfolio-main/client && npm install && npm run build"
+    publishPath: "mern-portfolio-main/client/dist"
+    
+  # Backend Service  
+  - type: web
+    name: portfolio-backend
+    env: node
+    buildCommand: "cd mern-portfolio-main/server && npm install"
+    startCommand: "cd mern-portfolio-main/server && npm start"
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: mern-portfolio-main/server
+    healthCheckPath: /health

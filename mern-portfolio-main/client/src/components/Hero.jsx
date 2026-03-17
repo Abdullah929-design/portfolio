@@ -45,7 +45,22 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home" aria-label="Introduction">
-      {/* Animated Background */}
+      {/* Video Background */}
+      <div className="hero__video-container" aria-hidden="true">
+        <video
+          className="hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/170480-843367912_medium.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="hero__video-overlay" />
+      </div>
+
+      {/* Original Animated Background (still visible with video) */}
       <div className="hero__bg" aria-hidden="true">
         <div className="hero__orb hero__orb--1" />
         <div className="hero__orb hero__orb--2" />

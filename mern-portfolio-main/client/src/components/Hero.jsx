@@ -33,8 +33,8 @@ const Hero = () => {
     return () => clearTimeout(timeoutRef.current)
   }, [displayText, isDeleting, roleIndex])
 
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const socials = [
@@ -163,8 +163,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <button onClick={scrollToProjects} className="btn-primary hero__cta-primary">
-              View My Work
+            <button onClick={scrollToServices} className="btn-primary hero__cta-primary">
+              Hire Me / Services
               <ArrowDown size={16} />
             </button>
             <a

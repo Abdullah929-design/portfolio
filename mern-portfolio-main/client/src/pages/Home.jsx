@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import About from '../components/About'
 import Projects from '../components/Projects'
 import Contact from '../components/Contact'
+import FiverrGigs from '../components/FiverrGigs'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 
@@ -29,6 +30,7 @@ const Home = () => {
         <About />
         <Projects limit={3} />
         <Contact />
+        <FiverrGigs />
       </main>
       <Footer />
     </>
